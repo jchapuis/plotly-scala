@@ -70,8 +70,16 @@ lazy val demo = project
     jsDependencies ++= Seq(
       WebDeps.plotlyJs
         .intransitive()
-        ./("plotly.min.js")
-        .commonJSName("Plotly"),
+        ./("plotly-basic.min.js")
+        .commonJSName("PlotlyBasic"),
+      WebDeps.plotlyJs
+        .intransitive()
+        ./("plotly-cartesian.min.js")
+        .commonJSName("PlotlyCartesian"),
+      WebDeps.plotlyJs
+        .intransitive()
+        ./("plotly-geo.min.js")
+        .commonJSName("PlotlyGeo"),
       WebDeps.jquery
         .intransitive()
         ./("jquery.min.js")

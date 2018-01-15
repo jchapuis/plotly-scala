@@ -141,6 +141,7 @@ object Codecs {
     implicit val ticksIsEnum = IsEnum.instance[Ticks](_.label)
     implicit val histNormIsEnum = IsEnum.instance[HistNorm](_.label)
     implicit val sizeModeIsEnum = IsEnum.instance[SizeMode](_.label)
+    implicit val locationModeIsEnum = IsEnum.instance[LocationMode](_.label)
 
     def jsonSumDirectCodecFor(name: String): JsonSumCodec = new JsonSumCodec {
       def encodeEmpty: Nothing =

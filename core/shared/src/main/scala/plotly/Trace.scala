@@ -198,3 +198,53 @@ object Histogram {
       Option(showlegend) .map(b => b: Boolean)
     )
 }
+
+case class Choropleth(
+  z: Option[Sequence],
+  locations: Option[Seq[String]],
+  locationmode: Option[LocationMode],
+  text: Option[Seq[String]],
+  zauto: Option[Boolean],
+  zmin: Option[Double],
+  zmax: Option[Double],
+  opacity: Option[Double],
+  name: Option[String],
+  showlegend: Option[Boolean],
+  marker: Option[Marker],
+  autocolorscale: Option[Boolean],
+  reversescale: Option[Boolean],
+  showscale: Option[Boolean]) extends Trace
+
+object Choropleth {
+  def apply(
+     z: Sequence = null,
+     locations: Seq[String] = null,
+     locationmode: LocationMode = null,
+     text: Seq[String]   = null,
+     opacity: JDouble = null,
+     name: String = null,
+     zmin: JDouble = null,
+     zmax: JDouble = null,
+     zauto: JBoolean = null,
+     marker: Marker = null,
+     autocolorscale: JBoolean = null,
+     reversescale: JBoolean = null,
+     showscale: JBoolean = null,
+     showlegend: JBoolean = null
+           ) : Choropleth = Choropleth(
+    Option(z),
+    Option(locations),
+    Option(locationmode),
+    Option(text),
+    Option(zauto).map(b => b: Boolean),
+    Option(zmin).map(d => d: Double),
+    Option(zmax).map(d => d: Double),
+    Option(opacity).map(d => d: Double),
+    Option(name),
+    Option(showlegend).map(b => b: Boolean),
+    Option(marker),
+    Option(autocolorscale).map(b => b: Boolean),
+    Option(reversescale).map(b => b: Boolean),
+    Option(showscale).map(b => b: Boolean)
+  )
+}
